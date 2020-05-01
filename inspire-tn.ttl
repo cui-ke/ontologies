@@ -1,0 +1,1439 @@
+@prefix : <http://cui.unige.ch/isi/onto/inspire-TN#> .
+@prefix gml: <http://www.opengis.net/gml/> .
+@prefix itn: <http:/cui.unige.chch/isi/onto/inspire-TN#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsp: <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix inspire-transport: <http://cui.unige.ch/isi/ontologies/inspire-transport#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@base <http://cui.unige.ch/isi/onto/inspire-TN> .
+
+<http://cui.unige.ch/isi/onto/inspire-TN> rdf:type owl:Ontology .
+
+<http://cui.unige.ch/isi/onto/inspire-TN> 
+    dct:creator "Claudine Métral & Gilles Falquet - Université de Genève" ;
+    dct:description """
+This is a translation in OWL of the structural part of the 
+
+D2.8.I.7 Data Specification on Transport Networks – Technical Guidelines
+
+https://inspire.ec.europa.eu/id/document/tg/tn
+
+""";
+    dct:publisher <http://cui.unige.ch> ;
+    dct:rights <https://creativecommons.org/licenses/by/3.0/> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://cui.unige.ch/isi/onto/inspire-TN#UML_Pack
+:UML_Pack rdf:type owl:AnnotationProperty .
+
+
+###  http://cui.unige.ch/isi/onto/inspire-TN#x_hasContents
+:x_hasContents rdf:type owl:AnnotationProperty .
+
+
+###  http://cui.unige.ch/isi/onto/inspire-TN#x_hasNext
+:x_hasNext rdf:type owl:AnnotationProperty .
+
+
+###  http://cui.unige.ch/isi/ontologies/inspire-transport#UML_Pack
+inspire-transport:UML_Pack rdf:type owl:AnnotationProperty .
+
+
+###  http://cui.unige.ch/isi/ontologies/inspire-transport#x_hasContents
+inspire-transport:x_hasContents rdf:type owl:AnnotationProperty .
+
+
+###  http://cui.unige.ch/isi/ontologies/inspire-transport#x_hasNext
+inspire-transport:x_hasNext rdf:type owl:AnnotationProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#UML_Pack
+itn:UML_Pack rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#centerlineGeometry
+itn:centerlineGeometry rdf:type owl:ObjectProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#centralLineGeometry
+itn:centralLineGeometry rdf:type owl:ObjectProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#element
+itn:element rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#elements
+itn:elements rdf:type owl:ObjectProperty ;
+             owl:inverseOf itn:inNetwork .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#endNode
+itn:endNode rdf:type owl:ObjectProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#fictitious
+itn:fictitious rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain itn:Link ;
+               rdfs:range [ rdf:type owl:Restriction ;
+                            owl:onProperty itn:sign ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:boolean
+                          ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#formOfRoadNode
+itn:formOfRoadNode rdf:type owl:ObjectProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#geometry
+itn:geometry rdf:type owl:ObjectProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#inNetwork
+itn:inNetwork rdf:type owl:ObjectProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#link
+itn:link rdf:type owl:ObjectProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#networkRef
+itn:networkRef rdf:type owl:ObjectProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#startNode
+itn:startNode rdf:type owl:ObjectProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#val
+itn:val rdf:type owl:ObjectProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#x_hasContents
+itn:x_hasContents rdf:type owl:ObjectProperty ,
+                           owl:FunctionalProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#x_hasNext
+itn:x_hasNext rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#beginLifespanVersion
+itn:beginLifespanVersion rdf:type owl:DatatypeProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#endLifespanVersion
+itn:endLifespanVersion rdf:type owl:DatatypeProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#inspireId
+itn:inspireId rdf:type owl:DatatypeProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#sign
+itn:sign rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.opengis.net/gml/Curve
+gml:Curve rdf:type owl:Class .
+
+
+###  http://www.opengis.net/gml/Point
+gml:Point rdf:type owl:Class .
+
+
+###  http://www.opengis.net/gml/Surface
+gml:Surface rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#AccessRestriction
+itn:AccessRestriction rdf:type owl:Class ;
+                      rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#AreaConditionValue
+itn:AreaConditionValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#ConditionOfFacility
+itn:ConditionOfFacility rdf:type owl:Class ;
+                        rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#ConnectionTypeValue
+itn:ConnectionTypeValue rdf:type owl:Class ;
+                        rdfs:subClassOf itn:NetworkElement .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#CrossReference
+itn:CrossReference rdf:type owl:Class ;
+                   rdfs:subClassOf itn:NetworkElement ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty itn:element ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass itn:X_List_2_NetworkElements
+                                   ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#DirectedLink
+itn:DirectedLink rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty itn:link ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass itn:Link
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty itn:sign ;
+                                   owl:someValuesFrom xsd:integer
+                                 ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#ERoad
+itn:ERoad rdf:type owl:Class ;
+          rdfs:subClassOf itn:TransportLinkSet .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#FormOfRoadNodeValue
+itn:FormOfRoadNodeValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#FormOfWay
+itn:FormOfWay rdf:type owl:Class ;
+              rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#FunctionalRoadClass
+itn:FunctionalRoadClass rdf:type owl:Class ;
+                        rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#FunctionalRoadClassValue
+itn:FunctionalRoadClassValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#GeneralisedLink
+itn:GeneralisedLink rdf:type owl:Class ;
+                    rdfs:subClassOf itn:NetworkElement .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#GradeSeparatedCrossing
+itn:GradeSeparatedCrossing rdf:type owl:Class ;
+                           rdfs:subClassOf itn:NetworkElement ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty itn:element ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass itn:X_List_Min2_Links
+                                           ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#Link
+itn:Link rdf:type owl:Class ;
+         rdfs:subClassOf itn:GeneralisedLink ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty itn:centralLineGeometry ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass gml:Curve
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty itn:endNode ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass itn:Node
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty itn:startNode ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass itn:Node
+                         ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#LinkDirectionValue
+itn:LinkDirectionValue rdf:type owl:Class ;
+                       :UML_Pack """Network
+""" .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#LinkReference
+itn:LinkReference rdf:type owl:Class ;
+                  rdfs:subClassOf itn:NetworkReference ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty itn:element ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass itn:GeneralisedLink
+                                  ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#LinkSequence
+itn:LinkSequence rdf:type owl:Class ;
+                 rdfs:subClassOf itn:GeneralisedLink ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty itn:link ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass itn:X_List_Min1_DirectedLink
+                                 ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#LinkSet
+itn:LinkSet rdf:type owl:Class ;
+            rdfs:subClassOf itn:NetworkElement ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty itn:link ;
+                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass itn:GeneralisedLink
+                            ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#MaintenanceAuthority
+itn:MaintenanceAuthority rdf:type owl:Class ;
+                         rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#MarkerPost
+itn:MarkerPost rdf:type owl:Class ;
+               rdfs:subClassOf itn:TransportPoint .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#MinMaxLaneValue
+itn:MinMaxLaneValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#Network
+itn:Network rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty itn:elements ;
+                              owl:allValuesFrom itn:NetworkElement
+                            ] ;
+            :UML_Pack "Network" .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#NetworkArea
+itn:NetworkArea rdf:type owl:Class ;
+                rdfs:subClassOf itn:NetworkElement ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty itn:geometry ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass gml:Surface
+                                ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#NetworkConnection
+itn:NetworkConnection rdf:type owl:Class ;
+                      rdfs:subClassOf itn:NetworkElement ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty itn:element ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass itn:X_List_Min2_NetworkElements
+                                      ] ;
+                      rdfs:comment """Constraint: Elements in different networks
+
+All elements have to be in different networks 
+:
+
+OCL:	
+inv: element->forAll(e1,e2	|e1<>e2 implies e1.inNetwork- >excludesAll(e2.inNetwork) )""" .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#NetworkElement
+itn:NetworkElement rdf:type owl:Class ;
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty itn:inNetwork ;
+                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass itn:Network
+                                   ] ;
+                   :UML_Pack "Network" .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#NetworkProperty
+itn:NetworkProperty rdf:type owl:Class ;
+                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                      owl:onProperty itn:networkRef ;
+                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass itn:NetworkReference
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty itn:inspireId ;
+                                      owl:allValuesFrom rdfs:Literal
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty itn:beginLifespanVersion ;
+                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:dateTime
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty itn:endLifespanVersion ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:dateTime
+                                    ] ;
+                    rdfs:comment """Definition:
+
+Abstract base type representing phenomena located at or along a network element. This base type provides general properties to associate the network- related phenomena (network properties) with the network elements.
+
+Description:
+
+In the simplest case (NetworkReference), the network property applies to the whole network element. In the case of a Link, the spatial reference may be restricted to part of the Link by using a linear reference. ISO/TC 211 is currently in the early stages of developing a standard for Linear Referencing (ISO 19148). A simple mechanism to express linear references is provided in this version of the network model; it is expected that the model will be extended once ISO 19148 is stable. The current simple model requires for all linear references two expressions representing a distance from the start of the Link along its curve geometry. The network property applies to the part of the Link between fromPosition and toPosition.
+
+
+
+Proposed «featureType»""" .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#NetworkReference
+itn:NetworkReference rdf:type owl:Class ;
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty itn:element ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass itn:NetworkElement
+                                     ] ;
+                     :UML_Pack "Network" .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#Node
+itn:Node rdf:type owl:Class ;
+         rdfs:subClassOf itn:NetworkElement ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty itn:geometry ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass gml:Point
+                         ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#NumberOfLanes
+itn:NumberOfLanes rdf:type owl:Class ;
+                  rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#OwnerAuthority
+itn:OwnerAuthority rdf:type owl:Class ;
+                   rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RestrictionForVehicles
+itn:RestrictionForVehicles rdf:type owl:Class ;
+                           rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RestrictionTypeValue
+itn:RestrictionTypeValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#Road
+itn:Road rdf:type owl:Class ;
+         rdfs:subClassOf itn:TransportLinkSet ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty itn:link ;
+                           owl:allValuesFrom [ rdf:type owl:Class ;
+                                               owl:unionOf ( itn:RoadLink
+                                                             itn:RoadLinkSequence
+                                                           )
+                                             ]
+                         ] ;
+         rdfs:comment "A collection of road link sequences and/or individual road links that are characterized by one or more thematic identifiers and/or properties." .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RoadArea
+itn:RoadArea rdf:type owl:Class ;
+             rdfs:subClassOf itn:TransportArea .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RoadLink
+itn:RoadLink rdf:type owl:Class ;
+             rdfs:subClassOf itn:TransportLink .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RoadLinkSequence
+itn:RoadLinkSequence rdf:type owl:Class ;
+                     rdfs:subClassOf itn:TransportLinkSequence .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RoadName
+itn:RoadName rdf:type owl:Class ;
+             rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RoadNode
+itn:RoadNode rdf:type owl:Class ;
+             rdfs:subClassOf itn:TransportNode ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty itn:formOfRoadNode ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass itn:FormOfRoadNodeValue
+                             ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RoadPartValue
+itn:RoadPartValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RoadServiceArea
+itn:RoadServiceArea rdf:type owl:Class ;
+                    rdfs:subClassOf itn:TransportArea .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RoadServiceType
+itn:RoadServiceType rdf:type owl:Class ;
+                    rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RoadSurfaceCategory
+itn:RoadSurfaceCategory rdf:type owl:Class ;
+                        rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RoadSurfaceCategoryValue
+itn:RoadSurfaceCategoryValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#RoadWidth
+itn:RoadWidth rdf:type owl:Class ;
+              rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#ServiceFacilityValue
+itn:ServiceFacilityValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#SimpleLinearReference
+itn:SimpleLinearReference rdf:type owl:Class ;
+                          rdfs:subClassOf itn:LinkReference .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#SimplePointReference
+itn:SimplePointReference rdf:type owl:Class ;
+                         rdfs:subClassOf itn:LinkReference .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#SpeedLimit
+itn:SpeedLimit rdf:type owl:Class ;
+               rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#SpeedLimitMinMaxValue
+itn:SpeedLimitMinMaxValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#SpeedLimitSourceValue
+itn:SpeedLimitSourceValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#TrafficFlowdirection
+itn:TrafficFlowdirection rdf:type owl:Class ;
+                         rdfs:subClassOf itn:TransportProperty ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty itn:networkRef ;
+                                           owl:allValuesFrom itn:LinkReference
+                                         ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#TransportArea
+itn:TransportArea rdf:type owl:Class ;
+                  rdfs:subClassOf itn:NetworkArea ,
+                                  itn:TransportObject ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty itn:inspireId ;
+                                    owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                  ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#TransportLink
+itn:TransportLink rdf:type owl:Class ;
+                  rdfs:subClassOf itn:Link ,
+                                  itn:TransportObject ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty itn:inspireId ;
+                                    owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                  ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#TransportLinkSequence
+itn:TransportLinkSequence rdf:type owl:Class ;
+                          rdfs:subClassOf itn:LinkSequence ,
+                                          itn:TransportObject .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#TransportLinkSet
+itn:TransportLinkSet rdf:type owl:Class ;
+                     rdfs:subClassOf itn:LinkSet ,
+                                     itn:TransportObject .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#TransportNetwork
+itn:TransportNetwork rdf:type owl:Class ;
+                     rdfs:subClassOf itn:Network ;
+                     :UML_Pack "Common transport elements" .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#TransportNode
+itn:TransportNode rdf:type owl:Class ;
+                  rdfs:subClassOf itn:Node ,
+                                  itn:TransportObject .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#TransportObject
+itn:TransportObject rdf:type owl:Class ;
+                    :UML_Pack "Common transport elements" .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#TransportPoint
+itn:TransportPoint rdf:type owl:Class ;
+                   rdfs:subClassOf itn:NetworkElement ,
+                                   itn:TransportObject ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty itn:geometry ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass gml:Point
+                                   ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#TransportProperty
+itn:TransportProperty rdf:type owl:Class ;
+                      rdfs:subClassOf itn:NetworkProperty ;
+                      :UML_Pack "Common transport elements" .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#TransportTypeValue
+itn:TransportTypeValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#VehicleTrafficArea
+itn:VehicleTrafficArea rdf:type owl:Class ;
+                       rdfs:subClassOf itn:TransportArea .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#VehicleTypeValue
+itn:VehicleTypeValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#VerticalPosition
+itn:VerticalPosition rdf:type owl:Class ;
+                     rdfs:subClassOf itn:TransportProperty .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#WeatherConditionValue
+itn:WeatherConditionValue rdf:type owl:Class .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_EmptyList
+itn:X_EmptyList rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( itn:X_List
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty itn:x_hasContents ;
+                                                             owl:maxCardinality "0"^^xsd:nonNegativeInteger
+                                                           ]
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty itn:x_hasNext ;
+                                                             owl:maxCardinality "0"^^xsd:nonNegativeInteger
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf itn:X_List .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_List
+itn:X_List rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty itn:x_hasNext ;
+                             owl:allValuesFrom itn:X_List
+                           ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_List_2_NetworkElements
+itn:X_List_2_NetworkElements rdf:type owl:Class ;
+                             rdfs:subClassOf itn:X_List_Max2 ,
+                                             itn:X_List_Min2 ,
+                                             itn:X_List_NetworkElements .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_List_DirectedLinks
+itn:X_List_DirectedLinks rdf:type owl:Class ;
+                         rdfs:subClassOf itn:X_List ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty itn:x_hasContents ;
+                                           owl:allValuesFrom itn:DirectedLink
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty itn:x_hasNext ;
+                                           owl:allValuesFrom itn:X_List_DirectedLinks
+                                         ] .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_List_Links
+itn:X_List_Links rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( itn:X_List
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty itn:x_hasContents ;
+                                                              owl:allValuesFrom itn:Link
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty itn:x_hasNext ;
+                                                              owl:allValuesFrom itn:X_List_Links
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf itn:X_List .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_List_Max1
+itn:X_List_Max1 rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:unionOf ( itn:X_EmptyList
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty itn:x_hasNext ;
+                                                      owl:someValuesFrom itn:X_EmptyList
+                                                    ]
+                                                  )
+                                    ] ;
+                rdfs:subClassOf itn:X_List .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_List_Max2
+itn:X_List_Max2 rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( itn:X_List
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty itn:x_hasNext ;
+                                                             owl:allValuesFrom itn:X_List_Max1
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf itn:X_List .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_List_Min1
+itn:X_List_Min1 rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( itn:X_List
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty itn:x_hasContents ;
+                                                             owl:someValuesFrom owl:Thing
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf itn:X_List .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_List_Min1_DirectedLink
+itn:X_List_Min1_DirectedLink rdf:type owl:Class ;
+                             rdfs:subClassOf itn:X_List_DirectedLinks ,
+                                             itn:X_List_Min1 .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_List_Min2
+itn:X_List_Min2 rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( itn:X_List
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty itn:x_hasNext ;
+                                                             owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                  owl:complementOf itn:X_EmptyList
+                                                                                ]
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf itn:X_List .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_List_Min2_Links
+itn:X_List_Min2_Links rdf:type owl:Class ;
+                      rdfs:subClassOf itn:X_List_Links ,
+                                      itn:X_List_Min2 .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_List_Min2_NetworkElements
+itn:X_List_Min2_NetworkElements rdf:type owl:Class ;
+                                rdfs:subClassOf itn:X_List_Min2 ,
+                                                itn:X_List_NetworkElements .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#X_List_NetworkElements
+itn:X_List_NetworkElements rdf:type owl:Class ;
+                           owl:equivalentClass [ owl:intersectionOf ( itn:X_List
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty itn:x_hasContents ;
+                                                                        owl:allValuesFrom itn:NetworkElement
+                                                                      ]
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty itn:x_hasNext ;
+                                                                        owl:allValuesFrom itn:X_List_NetworkElements
+                                                                      ]
+                                                                    ) ;
+                                                 rdf:type owl:Class
+                                               ] ;
+                           rdfs:subClassOf itn:X_List .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#aTestElementForLists
+itn:aTestElementForLists rdf:type owl:NamedIndividual .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#air
+itn:air rdf:type owl:NamedIndividual ,
+                 itn:TransportTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#allVehicle
+itn:allVehicle rdf:type owl:NamedIndividual ,
+                        itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#average
+itn:average rdf:type owl:NamedIndividual ,
+                     itn:MinMaxLaneValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#bicycle
+itn:bicycle rdf:type owl:NamedIndividual ,
+                     itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#bicycleRoad
+itn:bicycleRoad rdf:type owl:NamedIndividual ,
+                         itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#bothDirections
+itn:bothDirections rdf:type owl:NamedIndividual ,
+                            itn:LinkDirectionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#busStation
+itn:busStation rdf:type owl:NamedIndividual ,
+                        itn:RoadServiceType .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#cable
+itn:cable rdf:type owl:NamedIndividual ,
+                   itn:TransportTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#carWithTrailer
+itn:carWithTrailer rdf:type owl:NamedIndividual ,
+                            itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#carriageway
+itn:carriageway rdf:type owl:NamedIndividual ,
+                         itn:RoadPartValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#deliveryTruck
+itn:deliveryTruck rdf:type owl:NamedIndividual ,
+                           itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#disused
+itn:disused rdf:type owl:NamedIndividual ,
+                     itn:ConditionOfFacility .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#drinks
+itn:drinks rdf:type owl:NamedIndividual ,
+                    itn:ServiceFacilityValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#dualCarriageway
+itn:dualCarriageway rdf:type owl:NamedIndividual ,
+                             itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#eighthClass
+itn:eighthClass rdf:type owl:NamedIndividual ,
+                         itn:FunctionalRoadClassValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#emergencyVehicle
+itn:emergencyVehicle rdf:type owl:NamedIndividual ,
+                              itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#employeeVehicle
+itn:employeeVehicle rdf:type owl:NamedIndividual ,
+                             itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#enclosedTrafficArea
+itn:enclosedTrafficArea rdf:type owl:NamedIndividual ,
+                                 itn:FormOfRoadNodeValue ,
+                                 itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#entranceOrExitCarPark
+itn:entranceOrExitCarPark rdf:type owl:NamedIndividual ,
+                                   itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#entranceOrExitService
+itn:entranceOrExitService rdf:type owl:NamedIndividual ,
+                                   itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#facilityVehicle
+itn:facilityVehicle rdf:type owl:NamedIndividual ,
+                             itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#farmVehicle
+itn:farmVehicle rdf:type owl:NamedIndividual ,
+                         itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#fifthClass
+itn:fifthClass rdf:type owl:NamedIndividual ,
+                        itn:FunctionalRoadClassValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#firstClass
+itn:firstClass rdf:type owl:NamedIndividual ,
+                        itn:FunctionalRoadClassValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#fixedTrafficSign
+itn:fixedTrafficSign rdf:type owl:NamedIndividual ,
+                              itn:SpeedLimitSourceValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#fog
+itn:fog rdf:type owl:NamedIndividual ,
+                 itn:WeatherConditionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#food
+itn:food rdf:type owl:NamedIndividual ,
+                  itn:ServiceFacilityValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#forbiddenLegally
+itn:forbiddenLegally rdf:type owl:NamedIndividual ,
+                              itn:AccessRestriction .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#fourthClass
+itn:fourthClass rdf:type owl:NamedIndividual ,
+                         itn:FunctionalRoadClassValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#freeway
+itn:freeway rdf:type owl:NamedIndividual ,
+                     itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#fuel
+itn:fuel rdf:type owl:NamedIndividual ,
+                  itn:ServiceFacilityValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#functional
+itn:functional rdf:type owl:NamedIndividual ,
+                        itn:ConditionOfFacility .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#highOccupancyVehicle
+itn:highOccupancyVehicle rdf:type owl:NamedIndividual ,
+                                  itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#ice
+itn:ice rdf:type owl:NamedIndividual ,
+                 itn:WeatherConditionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#inDirection
+itn:inDirection rdf:type owl:NamedIndividual ,
+                         itn:LinkDirectionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#inNationalPark
+itn:inNationalPark rdf:type owl:NamedIndividual ,
+                            itn:AreaConditionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#inOppositeDirection
+itn:inOppositeDirection rdf:type owl:NamedIndividual ,
+                                 itn:LinkDirectionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#insideCities
+itn:insideCities rdf:type owl:NamedIndividual ,
+                          itn:AreaConditionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#junction
+itn:junction rdf:type owl:NamedIndividual ,
+                      itn:FormOfRoadNodeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#levelCrossing
+itn:levelCrossing rdf:type owl:NamedIndividual ,
+                           itn:FormOfRoadNodeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#lightRail
+itn:lightRail rdf:type owl:NamedIndividual ,
+                       itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#list-a
+itn:list-a rdf:type owl:NamedIndividual ,
+                    itn:X_List ;
+           itn:x_hasContents itn:aTestElementForLists ;
+           itn:x_hasNext itn:list-b ;
+           :x_hasContents itn:aTestElementForLists ;
+           :x_hasNext itn:list-b .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#list-b
+itn:list-b rdf:type owl:NamedIndividual ,
+                    itn:X_List ;
+           itn:x_hasContents itn:aTestElementForLists ;
+           itn:x_hasNext itn:list-c ;
+           :x_hasContents itn:aTestElementForLists ;
+           :x_hasNext itn:list-c .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#list-c
+itn:list-c rdf:type owl:NamedIndividual ,
+                    itn:X_List ;
+           itn:x_hasContents itn:aTestElementForLists ;
+           itn:x_hasNext itn:x_emptyList ;
+           :x_hasContents itn:aTestElementForLists ;
+           :x_hasNext itn:x_emptyList .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#mailVehicle
+itn:mailVehicle rdf:type owl:NamedIndividual ,
+                         itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#mainRoad
+itn:mainRoad rdf:type owl:NamedIndividual ,
+                      itn:FunctionalRoadClassValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#maximum
+itn:maximum rdf:type owl:NamedIndividual ,
+                     itn:MinMaxLaneValue ,
+                     itn:SpeedLimitMinMaxValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#maximumDoubleAxleWeight
+itn:maximumDoubleAxleWeight rdf:type owl:NamedIndividual ,
+                                     itn:RestrictionTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#maximumHeight
+itn:maximumHeight rdf:type owl:NamedIndividual ,
+                           itn:RestrictionTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#maximumLength
+itn:maximumLength rdf:type owl:NamedIndividual ,
+                           itn:RestrictionTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#maximumSingleAxleWeight
+itn:maximumSingleAxleWeight rdf:type owl:NamedIndividual ,
+                                     itn:RestrictionTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#maximumTotalWeight
+itn:maximumTotalWeight rdf:type owl:NamedIndividual ,
+                                itn:RestrictionTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#maximumTripleAxleWeight
+itn:maximumTripleAxleWeight rdf:type owl:NamedIndividual ,
+                                     itn:RestrictionTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#maximumWidth
+itn:maximumWidth rdf:type owl:NamedIndividual ,
+                          itn:RestrictionTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#militaryVehicle
+itn:militaryVehicle rdf:type owl:NamedIndividual ,
+                             itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#minimum
+itn:minimum rdf:type owl:NamedIndividual ,
+                     itn:MinMaxLaneValue ,
+                     itn:SpeedLimitMinMaxValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#moped
+itn:moped rdf:type owl:NamedIndividual ,
+                   itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#motorcycle
+itn:motorcycle rdf:type owl:NamedIndividual ,
+                        itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#motorway
+itn:motorway rdf:type owl:NamedIndividual ,
+                      itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#nearRailroadCrossing
+itn:nearRailroadCrossing rdf:type owl:NamedIndividual ,
+                                  itn:AreaConditionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#nearSchool
+itn:nearSchool rdf:type owl:NamedIndividual ,
+                        itn:AreaConditionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#ninthClass
+itn:ninthClass rdf:type owl:NamedIndividual ,
+                        itn:FunctionalRoadClassValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#onGroundSurface
+itn:onGroundSurface rdf:type owl:NamedIndividual ,
+                             itn:VerticalPosition .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#outsideCities
+itn:outsideCities rdf:type owl:NamedIndividual ,
+                           itn:AreaConditionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#parking
+itn:parking rdf:type owl:NamedIndividual ,
+                     itn:RoadServiceType .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#passengerCar
+itn:passengerCar rdf:type owl:NamedIndividual ,
+                          itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#paved
+itn:paved rdf:type owl:NamedIndividual ,
+                   itn:RoadSurfaceCategoryValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#pavedSurface
+itn:pavedSurface rdf:type owl:NamedIndividual ,
+                          itn:RoadPartValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#pedestrian
+itn:pedestrian rdf:type owl:NamedIndividual ,
+                        itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#pedestrianZone
+itn:pedestrianZone rdf:type owl:NamedIndividual ,
+                            itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#physicallyImpossible
+itn:physicallyImpossible rdf:type owl:NamedIndividual ,
+                                  itn:AccessRestriction .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#picnicArea
+itn:picnicArea rdf:type owl:NamedIndividual ,
+                        itn:ServiceFacilityValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#playground
+itn:playground rdf:type owl:NamedIndividual ,
+                        itn:ServiceFacilityValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#private
+itn:private rdf:type owl:NamedIndividual ,
+                     itn:AccessRestriction .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#privateBus
+itn:privateBus rdf:type owl:NamedIndividual ,
+                        itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#projected
+itn:projected rdf:type owl:NamedIndividual ,
+                       itn:ConditionOfFacility .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#pseudoNode
+itn:pseudoNode rdf:type owl:NamedIndividual ,
+                        itn:FormOfRoadNodeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#publicAccess
+itn:publicAccess rdf:type owl:NamedIndividual ,
+                          itn:AccessRestriction .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#publicBus
+itn:publicBus rdf:type owl:NamedIndividual ,
+                       itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#rail
+itn:rail rdf:type owl:NamedIndividual ,
+                  itn:TransportTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#railway
+itn:railway rdf:type owl:NamedIndividual ,
+                     itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#rain
+itn:rain rdf:type owl:NamedIndividual ,
+                  itn:WeatherConditionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#recommendedMaximum
+itn:recommendedMaximum rdf:type owl:NamedIndividual ,
+                                itn:SpeedLimitMinMaxValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#recommendedMinimum
+itn:recommendedMinimum rdf:type owl:NamedIndividual ,
+                                itn:SpeedLimitMinMaxValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#regulation
+itn:regulation rdf:type owl:NamedIndividual ,
+                        itn:SpeedLimitSourceValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#residentialVehicle
+itn:residentialVehicle rdf:type owl:NamedIndividual ,
+                                itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#restArea
+itn:restArea rdf:type owl:NamedIndividual ,
+                      itn:RoadServiceType .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#road
+itn:road rdf:type owl:NamedIndividual ,
+                  itn:TransportTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#roadEnd
+itn:roadEnd rdf:type owl:NamedIndividual ,
+                     itn:FormOfRoadNodeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#roadServiceArea
+itn:roadServiceArea rdf:type owl:NamedIndividual ,
+                             itn:FormOfRoadNodeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#roundabout
+itn:roundabout rdf:type owl:NamedIndividual ,
+                        itn:FormOfRoadNodeValue ,
+                        itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#schoolBus
+itn:schoolBus rdf:type owl:NamedIndividual ,
+                       itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#seasonal
+itn:seasonal rdf:type owl:NamedIndividual ,
+                      itn:AccessRestriction .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#secondClass
+itn:secondClass rdf:type owl:NamedIndividual ,
+                         itn:FunctionalRoadClassValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#serviceRoad
+itn:serviceRoad rdf:type owl:NamedIndividual ,
+                         itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#seventhClass
+itn:seventhClass rdf:type owl:NamedIndividual ,
+                          itn:FunctionalRoadClassValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#shop
+itn:shop rdf:type owl:NamedIndividual ,
+                  itn:ServiceFacilityValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#singleCarriageway
+itn:singleCarriageway rdf:type owl:NamedIndividual ,
+                               itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#sixthClass
+itn:sixthClass rdf:type owl:NamedIndividual ,
+                        itn:FunctionalRoadClassValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#slipRoad
+itn:slipRoad rdf:type owl:NamedIndividual ,
+                      itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#smog
+itn:smog rdf:type owl:NamedIndividual ,
+                  itn:WeatherConditionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#snow
+itn:snow rdf:type owl:NamedIndividual ,
+                  itn:WeatherConditionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#snowChainEquippedVehicle
+itn:snowChainEquippedVehicle rdf:type owl:NamedIndividual ,
+                                      itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#suspendedOrElevated
+itn:suspendedOrElevated rdf:type owl:NamedIndividual ,
+                                 itn:VerticalPosition .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#tanier
+itn:tanier rdf:type owl:NamedIndividual ,
+                    itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#taxi
+itn:taxi rdf:type owl:NamedIndividual ,
+                  itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#thirdClass
+itn:thirdClass rdf:type owl:NamedIndividual ,
+                        itn:FunctionalRoadClassValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#toilets
+itn:toilets rdf:type owl:NamedIndividual ,
+                     itn:ServiceFacilityValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#toll
+itn:toll rdf:type owl:NamedIndividual ,
+                  itn:AccessRestriction ,
+                  itn:RoadServiceType .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#tractor
+itn:tractor rdf:type owl:NamedIndividual ,
+                     itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#trafficCalmingArea
+itn:trafficCalmingArea rdf:type owl:NamedIndividual ,
+                                itn:AreaConditionValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#trafficSquare
+itn:trafficSquare rdf:type owl:NamedIndividual ,
+                           itn:FormOfRoadNodeValue ,
+                           itn:FormOfWay .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#transportTruck
+itn:transportTruck rdf:type owl:NamedIndividual ,
+                            itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#trolleyBus
+itn:trolleyBus rdf:type owl:NamedIndividual ,
+                        itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#underConstruction
+itn:underConstruction rdf:type owl:NamedIndividual ,
+                               itn:ConditionOfFacility .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#underground
+itn:underground rdf:type owl:NamedIndividual ,
+                         itn:VerticalPosition .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#unpaved
+itn:unpaved rdf:type owl:NamedIndividual ,
+                     itn:RoadSurfaceCategoryValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#variableTrafficSign
+itn:variableTrafficSign rdf:type owl:NamedIndividual ,
+                                 itn:SpeedLimitSourceValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#vehicleForDisabledPerson
+itn:vehicleForDisabledPerson rdf:type owl:NamedIndividual ,
+                                      itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#vehicleWithExplosiveLoad
+itn:vehicleWithExplosiveLoad rdf:type owl:NamedIndividual ,
+                                      itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#vehicleWithWaterPollutingLoad
+itn:vehicleWithWaterPollutingLoad rdf:type owl:NamedIndividual ,
+                                           itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#vehicleWithotherDangerousLoad
+itn:vehicleWithotherDangerousLoad rdf:type owl:NamedIndividual ,
+                                           itn:VehicleTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#water
+itn:water rdf:type owl:NamedIndividual ,
+                   itn:TransportTypeValue .
+
+
+###  http:/cui.unige.chch/isi/onto/inspire-TN#x_emptyList
+itn:x_emptyList rdf:type owl:NamedIndividual ,
+                         itn:X_EmptyList ,
+                         itn:X_List_DirectedLinks .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

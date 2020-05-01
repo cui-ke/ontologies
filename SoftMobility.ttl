@@ -1,0 +1,243 @@
+@prefix : <http://cui.unige.ch/isi/onto/SoftMobility.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
+@base <http://cui.unige.ch/isi/onto/SoftMobility.owl#> .
+
+<http://cui.unige.ch/isi/onto/SoftMobility.owl#> rdf:type owl:Ontology ;
+                                      
+                                           dce:creator "Claudine Metral & Gilles Falquet -  claudine.metral|gilles.falquet@unige.ch" ;
+                                           dce:date "2020/04/30" ;
+                                           dce:description "Soft mobility ontology according to Geneva SITG" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#endOf
+:endOf rdf:type owl:ObjectProperty .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#forSection
+:forSection rdf:type owl:ObjectProperty .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#forTypeOfUser
+:forTypeOfUser rdf:type owl:ObjectProperty .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#partOf
+:partOf rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://cui.unige.ch/isi/onto/.owl#length
+:length rdf:type owl:DatatypeProperty .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#localization
+:localization rdf:type owl:DatatypeProperty .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#speed
+:speed rdf:type owl:DatatypeProperty .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#value
+:value rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#BusLane
+:BusLane rdf:type owl:Class ;
+         rdfs:subClassOf :CycleRoute .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#Crossing
+:Crossing rdf:type owl:Class ;
+          rdfs:subClassOf :Junction .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#CycleAndPedestrianPath
+:CycleAndPedestrianPath rdf:type owl:Class ;
+                        rdfs:subClassOf :Route ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :forTypeOfUser ;
+                                          owl:someValuesFrom [ rdf:type owl:Class ;
+                                                               owl:unionOf ( :Cyclist
+                                                                             :Pedestrian
+                                                                           )
+                                                             ]
+                                        ] .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#CycleLane
+:CycleLane rdf:type owl:Class ;
+           rdfs:subClassOf :CycleRoute .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#CyclePath
+:CyclePath rdf:type owl:Class ;
+           rdfs:subClassOf :CycleRoute .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#CycleRoute
+:CycleRoute rdf:type owl:Class ;
+            rdfs:subClassOf :Route ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :forTypeOfUser ;
+                              owl:someValuesFrom :Cyclist
+                            ] .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#Cyclist
+:Cyclist rdf:type owl:Class ;
+         rdfs:subClassOf :TypeOfUser .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#Duration
+:Duration rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :forSection ;
+                            owl:someValuesFrom :Section
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :forTypeOfUser ;
+                            owl:someValuesFrom :TypeOfUser
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :value ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:float
+                          ] .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#Junction
+:Junction rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :endOf ;
+                            owl:someValuesFrom :Section
+                          ] .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#LegalInstrument
+:LegalInstrument rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty :partOf ;
+                                   owl:someValuesFrom :SoftMobility
+                                 ] .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#Network
+:Network rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :partOf ;
+                           owl:someValuesFrom :SoftMobility
+                         ] .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#Pedestrian
+:Pedestrian rdf:type owl:Class ;
+            rdfs:subClassOf :TypeOfUser .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#PedestrianPath
+:PedestrianPath rdf:type owl:Class ;
+                rdfs:subClassOf :PedestrianRoute .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#PedestrianRoute
+:PedestrianRoute rdf:type owl:Class ;
+                 rdfs:subClassOf :Route ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :forTypeOfUser ;
+                                   owl:someValuesFrom :Pedestrian
+                                 ] .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#PedestrianZone
+:PedestrianZone rdf:type owl:Class ;
+                rdfs:subClassOf :PedestrianRoute .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#Promenade
+:Promenade rdf:type owl:Class ;
+           rdfs:subClassOf :PedestrianRoute .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#PromenadeInAPark
+:PromenadeInAPark rdf:type owl:Class ;
+                  rdfs:subClassOf :Promenade ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :partOf ;
+                                    owl:someValuesFrom :UrbanPark
+                                  ] .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#Route
+:Route rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :partOf ;
+                         owl:someValuesFrom :Network
+                       ] .
+
+
+###  http://cui.unige.ch/isi/onto/.owl#Section
+:Section rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :partOf ;
+                           owl:someValuesFrom :Route
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :length ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:float
+                         ] .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#SoftMobility
+:SoftMobility rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :localization ;
+                                owl:someValuesFrom xsd:string
+                              ] .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#Station
+:Station rdf:type owl:Class ;
+         rdfs:subClassOf :Junction .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#Stop
+:Stop rdf:type owl:Class ;
+      rdfs:subClassOf :Junction .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#StreetWithModeraleTraffic
+:StreetWithModeraleTraffic rdf:type owl:Class ;
+                           rdfs:subClassOf :CycleRoute .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#TypeOfUser
+:TypeOfUser rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :speed ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:integer
+                            ] .
+
+
+###  http://cui.unige.ch/isi/onto/SoftMobility.owl#UrbanPark
+:UrbanPark rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
